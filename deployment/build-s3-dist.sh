@@ -269,7 +269,7 @@ function build_resumable_hash_layer() {
 
   mkdir ./dist
   # build a docker image that builds the resumable-hash library and package to resumable-hash-lambda-layer.zip
-  docker build -t ${name} .
+  docker build -t ${name} . --platform=linux/amd64
 
   # create a container so we can copy the zip package to local host
   local id=$(docker create ${name})
